@@ -8,16 +8,15 @@
 <hr>
 
 {{#each todos}}
-<section>
+<section class="row">
   <form action="/complete/{{id}}" method="post">
-    <button type="submit" name="removeButton" value="{{title}}"> Mark Complete </button>
-      {{title}}
+    <button class="two columns" type="submit" name="removeButton" value="{{title}}"> Mark Complete </button>
+      <h4 class="eight columns">{{title}}</h4>
+  </form>
+  <form action="/edit/{{id}}" method="post">
+    <button class="two columns" type="submit" name="editButton" value="{{title}}"> Edit </button>
   </form>
 </section>
 {{/each}}
 
 <hr>
-
-{{#each finished}}
-{{todo}}<br>
-{{/each}}

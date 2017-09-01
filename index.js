@@ -32,6 +32,18 @@ app.post('/complete/:id', (req, res) => {
   });
 });
 
+app.post('/edit/:id', (req, res) => {
+  models.Todo.findById(req.params.id).then((todo) => {
+    res.render('edit', {todo: todo});
+  });
+});
+
+app.post('/edittodo/:id', (req, res) => {
+  models.Todo.update({title: req.body.item}, {where: {id: req.params.id}}).then(function(todo) {
+    res.redirect('/');
+  });
+});
+
 
 
 app.listen(3000);
